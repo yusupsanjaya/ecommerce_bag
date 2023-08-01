@@ -2,8 +2,12 @@ import 'package:ecommerce_bag/presentation/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'bloc/bloc/order_bloc.dart';
 import 'bloc/checkout/bloc/checkout_bloc.dart';
 import 'bloc/get_product/bloc/get_product_bloc.dart';
+import 'bloc/login/bloc/login_bloc.dart';
+import 'data/datasources/auth_remote_datasource.dart';
+import 'data/datasources/order_remote_datasource.dart';
 import 'data/datasources/product_remote.dart';
 
 void main() {
@@ -22,6 +26,12 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => CheckoutBloc(),
+        ),
+        BlocProvider(
+          create: (context) => LoginBloc(AuthRemoteDatasource()),
+        ),
+        BlocProvider(
+          create: (context) => OrderBloc(OrderRemoteDatasource()),
         ),
       ],
       child: MaterialApp(

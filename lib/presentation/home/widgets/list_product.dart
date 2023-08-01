@@ -1,3 +1,4 @@
+import 'package:ecommerce_bag/common/GlobalVatiables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -35,6 +36,7 @@ class _ListProductWidgetState extends State<ListProductWidget> {
             );
           }
           return GridView.builder(
+          
             padding: const EdgeInsets.symmetric(
               horizontal: 16,
             ),
@@ -47,9 +49,11 @@ class _ListProductWidgetState extends State<ListProductWidget> {
             itemBuilder: (context, index) {
               final Product product = state.data.data![index];
               return Card(
-                elevation: 2,
-                // shadowColor: const Color(0xffEE4D2D),
-                color: const Color(0xFFFFFFFF),
+               elevation: 0,
+               color: Colors.white,
+                shadowColor: Color.fromARGB(255, 0, 0, 0),
+              //  color: Color.fromARGB(255, 159, 31, 31),
+             //  color: GlobalVariables.backgroundColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),

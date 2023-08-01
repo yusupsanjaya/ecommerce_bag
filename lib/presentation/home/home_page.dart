@@ -6,6 +6,7 @@ import 'package:badges/badges.dart' as badges;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/checkout/bloc/checkout_bloc.dart';
 import '../../common/GlobalVatiables.dart';
+import 'cart/cart_page.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -194,9 +195,18 @@ class _HomepageState extends State<Homepage> {
                         style: TextStyle(color: Color(0xffEE4D2D)),
                       ),
                       // badgeColor: Colors.white,
-                      child: const Icon(
-                        Icons.shopping_cart_outlined,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return const CartPage();
+                          }));
+                        },
+                        child: const Icon(
+                          Icons.shopping_cart_outlined,
+                        ),
                       ),
+                    
                     );
                   }
                   return badges.Badge(
